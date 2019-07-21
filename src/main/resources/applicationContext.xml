@@ -9,12 +9,73 @@
         <property name="message" value="ABC"/>
         <property name="message2" value="cvx"/>
     </bean>
+
     <bean id="add" class="pl.chyc.AddNumber" scope="singleton">
         <property name="number" value="5"/>
         <property name="number2" value="1"/>
     </bean>
-    <bean id="addString" class="pl.chyc.AddString" scope="prototype">
+
+    <bean id="addString" class="pl.chyc.AddString" scope="singleton" init-method="summary" destroy-method="summary" lazy-init="true">
         <property name="text" value="Cos tam"/>
         <property name="text2" value="i jeszcze"/>
+    </bean>
+
+    <bean id="beanTemplate" abstract="true">
+        <property name="msg" value="first " />
+        <property name="msg2" value="second "/>
+        <property name="msg3" value="third "/>
+    </bean>
+    <bean id="beanTestTemplate" class="pl.chyc.BeanFirstTemplate" scope="prototype" parent="beanTemplate">
+        <property name="msg" value="cosik"/>
+    </bean>
+
+    <bean id="computer" class="pl.chyc.Computer">
+        <property name="hardDrive">
+            <bean id="hardDrive" class="pl.chyc.HardDrive">
+                <property name="power" value="66"/>
+                <property name="name" value="jakas"/>
+            </bean>
+        </property>
+        <property name="msg" value=""/>
+    </bean>
+
+    <bean id="car" class="pl.chyc.Car">
+        <constructor-arg index="0" ref="engine"/>
+        <constructor-arg index="1" ref="part"/>
+    </bean>
+
+    <bean id="engine" class="pl.chyc.Engine">
+        <property name="power" value="0"/>
+    </bean>
+    <bean id="part" class="pl.chyc.Part">
+        <property name="name" value="ls"/>
+        <property name="size" value="0"/>
+    </bean>
+
+    <bean id="collections" class="pl.chyc.Collections">
+        <property name="nameList">
+            <list>
+                <value>Adam</value>
+                <value>Monika</value>
+                <value>Karolina</value>
+                <value>Olga</value>
+            </list>
+        </property>
+        <property name="nameSet">
+            <set>
+                <value>Adam</value>
+                <value>Monika</value>
+                <value>Karolina</value>
+                <value>Olga</value>
+            </set>
+        </property>
+        <property name="nameMap">
+            <map>
+                <entry key="0" value="Adam"/>
+                <entry key="1" value="Monika"/>
+                <entry key="2" value="Karolina"/>
+                <entry key="3" value="Olga"/>
+            </map>
+        </property>
     </bean>
 </beans>

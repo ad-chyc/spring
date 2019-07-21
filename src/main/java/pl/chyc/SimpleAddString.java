@@ -1,13 +1,15 @@
 package pl.chyc;
 
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class SimpleAddString {
     public static void main(String[] args) {
-        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
         AddString text = (AddString) context.getBean("addString");
-        text.summary();
+        text.setText("dsa");
+        text.setText2("maska");
+        //context.registerShutdownHook();
+        context.close();
     }
 
 }

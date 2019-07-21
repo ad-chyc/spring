@@ -25,4 +25,7 @@ public class AddNumber {
         System.out.println("Suma: " + sum);
         return sum;
     }
+ /*   public void init(){
+        System.out.println("class" + getClass().getName());
+    }*/
 }

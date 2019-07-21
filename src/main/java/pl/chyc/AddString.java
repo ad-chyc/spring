@@ -25,4 +25,7 @@ public class AddString {
     public void summary(){
         System.out.println(text + " " + text2);
     }
+    public void init(){
+        System.out.println("class" + getClass().getName());
+    }
 }
