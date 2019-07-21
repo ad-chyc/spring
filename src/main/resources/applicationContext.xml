@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+       default-init-method="init"
+       default-destroy-method="destroy">
+    <bean id="helloWorld" class="pl.chyc.HelloWorld" scope="prototype">
+        <property name="message" value="ABC"/>
+        <property name="message2" value="cvx"/>
+    </bean>
+    <bean id="add" class="pl.chyc.AddNumber" scope="singleton">
+        <property name="number" value="5"/>
+        <property name="number2" value="1"/>
+    </bean>
+    <bean id="addString" class="pl.chyc.AddString" scope="prototype">
+        <property name="text" value="Cos tam"/>
+        <property name="text2" value="i jeszcze"/>
+    </bean>
+</beans>
